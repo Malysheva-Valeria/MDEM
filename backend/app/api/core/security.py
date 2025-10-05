@@ -1,12 +1,10 @@
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 from jose import JWTError, jwt
-import bcrypt  # ← змінили імпорт
+import bcrypt 
 from fastapi import HTTPException, status
 from app.config import settings
 
-
-# Видалили pwd_context
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Перевірити пароль"""
