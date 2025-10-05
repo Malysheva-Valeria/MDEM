@@ -40,8 +40,8 @@ class Doctor(Base):
 
     # Relationships
     user = relationship("User", back_populates="doctor_profile")
-    appointments = relationship("Appointment", back_populates="doctor", cascade="all, delete-orphan")
-    medical_records = relationship("MedicalRecord", back_populates="doctor", cascade="all, delete-orphan")
+    #appointments = relationship("Appointment", back_populates="doctor", cascade="all, delete-orphan")
+    #medical_records = relationship("MedicalRecord", back_populates="doctor", cascade="all, delete-orphan")
 
     @property
     def average_rating(self):

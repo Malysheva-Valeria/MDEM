@@ -46,8 +46,8 @@ class Patient(Base):
 
     # Relationships
     user = relationship("User", back_populates="patient_profile")
-    medical_records = relationship("MedicalRecord", back_populates="patient", cascade="all, delete-orphan")
-    appointments = relationship("Appointment", back_populates="patient", cascade="all, delete-orphan")
+    #medical_records = relationship("MedicalRecord", back_populates="patient", cascade="all, delete-orphan")
+    #appointments = relationship("Appointment", back_populates="patient", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"<Patient(user_id={self.user_id})>"
