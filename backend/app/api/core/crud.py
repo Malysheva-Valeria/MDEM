@@ -12,7 +12,7 @@ def get_user_by_id(db: Session, user_id: int) -> Optional[User]:
     return db.query(User).filter(User.id == user_id).first()
 
 def create_user(db: Session, email: str, password: str, first_name: str,
-                last_name: str, role: str) -> User:
+                last_name: str, role: str, phone: str = None) -> User:
     """Створити нового користувача"""
     hashed_password = get_password_hash(password)
     db_user = User(
@@ -20,6 +20,7 @@ def create_user(db: Session, email: str, password: str, first_name: str,
         hashed_password=hashed_password,
         first_name=first_name,
         last_name=last_name,
+        phone=phone,  # Додали phone
         role=UserRole(role),
         is_active=True,
         is_verified=False

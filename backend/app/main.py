@@ -2,13 +2,13 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
-# Правильні імпорти з app. (запускаємо з backend/)
 from app.config import settings
 from app.database import engine
 from app import models
 from app.api.v1.api import api_router
+from app.api.v1 import auth, users
 
-# Create database tables
+# Створення таблиць в базі даних
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -18,7 +18,7 @@ app = FastAPI(
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# Set CORS
+# Створення CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.BACKEND_CORS_ORIGINS,
@@ -27,8 +27,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API router
+# Підключення API роутерів
 app.include_router(api_router, prefix=settings.API_V1_STR)
+app.include_router(users.router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
