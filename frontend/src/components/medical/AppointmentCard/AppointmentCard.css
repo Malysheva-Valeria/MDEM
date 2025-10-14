@@ -1,0 +1,132 @@
+.appointment-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  background: white;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.appointment-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- Borders by status ----- */
+.card--pending {
+  border-color: #3b82f6;
+}
+.card--confirmed {
+  border-color: #22c55e;
+}
+.card--cancelled {
+  border-color: #ef4444;
+}
+.card--completed {
+  border-color: #9ca3af;
+}
+
+/* ----- Header ----- */
+.appointment-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.appointment-card__status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.appointment-card__date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* ----- Badge ----- */
+.badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.badge--pending {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+.badge--confirmed {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+.badge--cancelled {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+.badge--completed {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+/* ----- Info ----- */
+.appointment-card__info .info-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  margin-top: 4px;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 4px;
+}
+
+/* ----- Buttons ----- */
+.appointment-card__buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.btn--cancel {
+  background-color: #ef4444 !important;
+  color: white !important;
+}
+
+.btn--cancel:hover {
+  background-color: #dc2626 !important;
+}
+
+/* ----- Icons ----- */
+.icon--pending {
+  color: #3b82f6;
+}
+.icon--confirmed {
+  color: #22c55e;
+}
+.icon--cancelled {
+  color: #ef4444;
+}
+.icon--completed {
+  color: #9ca3af;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 640px) {
+  .appointment-card__buttons {
+    flex-direction: column;
+  }
+
+  .appointment-card__buttons button {
+    width: 100%;
+  }
+}
